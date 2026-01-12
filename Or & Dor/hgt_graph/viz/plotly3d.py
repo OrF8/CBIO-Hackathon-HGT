@@ -1,8 +1,9 @@
 import math
+import os
 import networkx as nx
 import plotly.graph_objs as go
 from pathlib import Path
-from typing import Dict, List, Set, Tuple, Union
+from typing import Dict, List, Set, Tuple, Union, Mapping, Any
 from ..constants import (EDGE_WEIGHT_KEY, IDENTITY_KEY, COVERAGE_KEY, ALIGNED_LENGTH_KEY, TAX_DIST_KEY,
                          ORGANISM_KEY, PROTEIN_NAME_KEY, SEQ_LENGTH_KEY, PLOTLY_MIN_W, PLOTLY_MAX_W,
                          SUS_EDGE_COLOR, REG_EDGE_COLOR, SUS_NODE_BORDER_COLOR, REG_NODE_BORDER_COLOR)
@@ -79,7 +80,7 @@ def build_edge_traces(G: nx.Graph, pos: Dict[str, Tuple[float, float, float]],
 
 
 def make_node_traces(G: nx.Graph, pos: Dict[str, Tuple[float, float, float]], highlight_nodes: Set[str],
-                     hgt_scores: Dict[str, float], node_label: str ) -> List[go.Scatter3d]:
+                     hgt_scores: Dict[str, float], node_label: str) -> List[go.Scatter3d]:
     """
     Create node traces for 3D Plotly visualization.
     :param G: The input NetworkX graph.
@@ -89,9 +90,10 @@ def make_node_traces(G: nx.Graph, pos: Dict[str, Tuple[float, float, float]], hi
     :param node_label: Choice of node label: "name", "id", or "none".
     :return: A list of Plotly Scatter3d traces for nodes.
     """
-    def node_display(nid: str, attrs: dict) -> str:
-        name = str(attrs.get(PROTEIN_NAME_KEY, ''))
-        return name if (node_label == 'name' and name) else nid
+    def node_display(attrs: Mapping[str, Any]) -> str:
+        org: str = str(attrs.get(ORGANISM_KEY, ''))
+        protein_name: str = str(attrs.get(PROTEIN_NAME_KEY, ''))
+        return org if (node_label == 'org_name' and org) else protein_name
 
     # containers for the two groups
     groups = {
@@ -108,7 +110,7 @@ def make_node_traces(G: nx.Graph, pos: Dict[str, Tuple[float, float, float]], hi
         genus = attrs.get('genus')
         score = float(hgt_scores.get(nid, 0.0))
 
-        disp = node_display(nid, attrs)
+        disp = node_display(attrs)
 
         # Determine node size based on sequence length
         base_size = 8 + 6 * math.log10(seq_len + 1) if seq_len > 0 else 10
@@ -180,7 +182,7 @@ def make_node_traces(G: nx.Graph, pos: Dict[str, Tuple[float, float, float]], hi
 
 
 def export_plotly_3d(G: nx.Graph, out_html: PathLike, sus_edges: Set[Tuple[str, str]], hgt_scores: Dict[str, float],
-                     highlight_nodes: Set[str], node_label: str = 'name', show_edge_hover: bool = True) -> None:
+                     highlight_nodes: Set[str], node_label: str = 'org_name', show_edge_hover: bool = True) -> None:
     """
     Export the given NetworkX graph to a rotatable 3D Plotly HTML visualization.
     :param G: The input NetworkX graph.
@@ -210,4 +212,4 @@ def export_plotly_3d(G: nx.Graph, out_html: PathLike, sus_edges: Set[Tuple[str, 
     )
 
     fig.write_html(out_html, include_plotlyjs="cdn")
-    print(f"Saved 3D interactive graph to: {out_html}")
+    print(f"Saved 3D interactive graph to: {os.path.abspath(out_html)}")
