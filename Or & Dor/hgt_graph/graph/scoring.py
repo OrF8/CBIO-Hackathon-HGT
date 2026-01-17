@@ -18,8 +18,8 @@ def compute_hgt_scores(G: nx.Graph, min_tax_distance: int = HGT_TAX_DISTANCE_MIN
              - A dictionary of suspicious edge counts per node.
              - A set of suspicious edges.
     """
-    scores = {n: 0.0 for n in G.nodes()}
-    sus_degree = {n: 0 for n in G.nodes()}
+    scores: Dict[str, float] = {n: 0.0 for n in G.nodes()}
+    sus_degree: Dict[str, int] = {n: 0 for n in G.nodes()}
     suspicious_edges: Set[Tuple[str, str]] = set()
 
     for u, v, edata in G.edges(data=True):
