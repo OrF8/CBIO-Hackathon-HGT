@@ -38,6 +38,7 @@ Full paper available [here](LaTeX/Who%20Stole%20My%20Genes%20-%20Detecting%20HGT
 - [🛠️ Technologies](#-technologies)
 - [👥 Contributors](#-contributors)
 - [🎓 Course Context](#-course-context)
+- [📄 License](#-license)
 
 ---
 
@@ -361,3 +362,8 @@ However, we welcome:
 - Suggestions for further biological validation
 
 ---
+
+## 📄 License
+
+This project is licensed under the **GNU General Public License v3.0** — see the [LICENSE](LICENSE) file for details.  
+If you use or build upon this work, please provide appropriate attribution to the original authors.
