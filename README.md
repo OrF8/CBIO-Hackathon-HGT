@@ -13,8 +13,8 @@ at the Hebrew University of Jerusalem ([**HUJI**](https://en.huji.ac.il/)).
 Full paper available [here](LaTeX/Who%20Stole%20My%20Genes%20-%20Detecting%20HGT%20Candidates%20Using%20Graph-Based%20Analysis.pdf).
 
 <p align="center">
-  <img src="https://img.shields.io/github/languages/top/OrF8/CBIO-Hackathon-HGT?style=default&logo=python&color=3776AB" alt="top-language">
-  <img src="https://img.shields.io/badge/BioPython-1.85-009688?logo=python" alt="biopython">
+  <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/OrF8/CBIO-Hackathon-HGT/main/badges/python-percentage.json&style=round-square&logo=python" alt="python-percentage">
+  <img src="https://img.shields.io/badge/BioPython-1.85-009688" alt="biopython">
   <img src="https://img.shields.io/badge/NetworkX-3.2.1-0A66C2" alt="networkx">
   <img src="https://img.shields.io/badge/MMSeqs2-external-FF6C37" alt="mmseqs2">
   <img src="https://img.shields.io/badge/NCBI_RefSeq-data-4CAF50" alt="ncbi-refseq">
