@@ -1,0 +1,56 @@
+name: Update Python Badge
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Get language stats and build badge JSON
+        env:
+          REPO: OrF8/CBIO-Hackathon-HGT
+        run: |
+          curl -s "https://api.github.com/repos/${REPO}/languages" > languages.json
+
+          python <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("languages.json").read_text())
+
+          total = sum(data.values())
+          python_bytes = data.get("Python", 0)
+
+          pct = 0 if total == 0 else round((python_bytes / total) * 100, 1)
+
+          badge = {
+              "schemaVersion": 1,
+              "label": "Python",
+              "message": f"{pct}%",
+              "color": "3776AB",
+              "logoSvg": ""
+          }
+
+          Path("badges").mkdir(exist_ok=True)
+          Path("badges/python-percentage.json").write_text(
+              json.dumps(badge, indent=2)
+          )
+          PY
+
+      - name: Commit badge JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add badges/python-percentage.json
+          git diff --cached --quiet || git commit -m "Update Python percentage badge"
+          git push
