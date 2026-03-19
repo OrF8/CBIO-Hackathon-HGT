@@ -282,7 +282,7 @@ The simulation in `ancient_hgt_simulation.py` further characterizes Method 2's s
 
 ## 🛠️ Technologies
 
-<p align="left">
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="python">
   <img src="https://img.shields.io/badge/BioPython-1.85-009688" alt="biopython">
   <img src="https://img.shields.io/badge/NetworkX-3.2.1-0A66C2" alt="networkx">
