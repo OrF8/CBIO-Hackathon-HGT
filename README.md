@@ -365,5 +365,8 @@ However, we welcome:
 
 ## 📄 License
 
-This project is licensed under the **GNU General Public License v3.0**, see the [LICENSE](LICENSE) file for details.  
-If you use or build upon this work, please provide appropriate attribution to the original authors.
+This project is licensed under the GNU General Public License v3.0.
+
+Copyright (c) 2026 Or Forshmit, Noam Kimhi, Roee Tekoah, Dor Stein, Noam Korkos.
+
+See the [LICENSE](LICENSE) file for details.
