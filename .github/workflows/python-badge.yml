@@ -18,7 +18,7 @@ jobs:
 
       - name: Get language stats and build badge JSON
         env:
-          REPO: OrF8/CBIO-Hackathon-HGT
+          REPO: OrF8/Who-Stole-My-Genes
         run: |
           curl -s "https://api.github.com/repos/${REPO}/languages" > languages.json
 
