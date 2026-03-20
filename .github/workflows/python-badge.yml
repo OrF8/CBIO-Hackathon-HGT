@@ -33,6 +33,7 @@ on:
       - '**/*.cs'
       - '**/*.sh'
       - '**/*.sql'
+      - '**/*.tex'
 
 permissions:
   contents: write
