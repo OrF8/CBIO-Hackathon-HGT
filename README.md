@@ -11,7 +11,7 @@ as part of the course [**76558 – Algorithms in Computational Biology**](https:
 Full paper available [here](LaTeX/Who%20Stole%20My%20Genes%20-%20Detecting%20HGT%20Candidates%20Using%20Graph-Based%20Analysis.pdf).
 
 <p align="center">
-  <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/OrF8/CBIO-Hackathon-HGT/main/badges/python-percentage.json&style=round-square&logo=python" alt="python-percentage">
+  <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/noam-kimhi/Who-Stole-My-Genes/main/badges/python-percentage.json&style=round-square&logo=python" alt="python-percentage">
   <img src="https://img.shields.io/badge/BioPython-1.85-009688" alt="biopython">
   <img src="https://img.shields.io/badge/NetworkX-3.2.1-0A66C2" alt="networkx">
   <img src="https://img.shields.io/badge/MMSeqs2-external-FF6C37" alt="mmseqs2">
@@ -193,7 +193,7 @@ Protein FASTAs (48 species, 19 families from RefSeq)
 
 1. Clone the repository:
 ```sh
-git clone https://github.com/OrF8/CBIO-Hackathon-HGT
+git clone https://github.com/noam-kimhi/Who-Stole-My-Genes
 ```
 
 2. Navigate to the project directory:
@@ -334,8 +334,8 @@ The simulation in `ancient_hgt_simulation.py` further characterizes Method 2's s
 <summary>Contributor Graph</summary>
 <br>
 <p align="left">
-  <a href="https://github.com/OrF8/CBIO-Hackathon-HGT/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=OrF8/CBIO-Hackathon-HGT">
+  <a href="https://github.com/noam-kimhi/Who-Stole-My-Genes/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=noam-kimhi/Who-Stole-My-Genes">
   </a>
 </p>
 </details>
